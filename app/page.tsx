@@ -26,27 +26,27 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Navigation - Matching the image exactly */}
       <header className="bg-[#0f1a2a] text-white sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center py-4 px-4">
+        <div className="container mx-auto flex items-center py-4 px-4">
           <div className="flex items-center">
             <span className="text-[#FF0000] font-bold text-lg md:text-xl">LEMON</span>
             <span className="font-bold text-lg md:text-xl text-white"> MEDIA</span>
           </div>
-          <nav className="flex space-x-4 md:space-x-12">
+          <nav className="flex ml-auto space-x-4 md:space-x-16">
             <button
               onClick={() => scrollToSection(homeRef)}
-              className="text-xs sm:text-sm hover:text-gray-300 cursor-pointer"
+              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection(servicesRef)}
-              className="text-xs sm:text-sm hover:text-gray-300 cursor-pointer"
+              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection(contactRef)}
-              className="text-xs sm:text-sm hover:text-gray-300 cursor-pointer"
+              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
             >
               Contact Us
             </button>
@@ -55,22 +55,22 @@ export default function Home() {
       </header>
 
       <main className="flex-grow">
-        {/* Hero Section - Responsive layout that matches the provided design */}
-        <section ref={homeRef} className="bg-white pt-10 md:pt-16 pb-0">
+        {/* Hero Section - Increase top padding significantly */}
+        <section ref={homeRef} className="bg-white pt-16 md:pt-24 pb-0">
           <div className="container mx-auto px-4">
             {/* Mobile: Stacked layout (current) / Desktop: Side-by-side layout (new) */}
             <div className="flex flex-col md:flex-row md:items-center">
-              {/* Text content - Left side on desktop, top on mobile */}
-              <div className="md:w-2/5 mb-8 md:mb-0 md:pr-4">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                  Triple your revenue <br />
+              {/* Text content - Adjust width */}
+              <div className="md:w-1/2 mb-8 md:mb-0 md:pr-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
+                  Triple your revenue <br className="hidden md:block" />
                   with <span className="text-[#FF0000]">Free of Cost</span>
                 </h1>
                 <div className="mt-4 md:mt-6">
-                  <p className="text-lg md:text-xl lg:text-2xl font-bold">
-                    500+ <span className="text-sm md:text-base font-normal">Happy Clients</span>
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">
+                    500+ <span className="text-base md:text-lg font-normal">Happy Clients</span>
                   </p>
-                  <p className="mt-2 text-base md:text-lg">
+                  <p className="mt-2 text-base md:text-lg mb-12 md:mb-16">
                     Sky rocket your Billboard revenue with our
                     <br className="hidden sm:block" />
                     Domino effect <span className="text-[#FF0000] font-medium">Trivision Billboard</span>
@@ -78,26 +78,25 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Image - Right side on desktop, bottom on mobile - BIGGER */}
-              <div className="md:w-3/5 md:-mr-4 lg:-mr-8 xl:-mr-16">
+              {/* Image - Adjust width */}
+              <div className="md:w-1/2 md:-mr-4 lg:-mr-8 xl:-mr-16">
                 <Image
                   src="/sprite-billboard-new.png"
                   alt="Sprite Billboard Advertisement with Fresh Yourself slogan"
                   width={1600}
                   height={1200}
-                  className="w-full h-auto object-contain transform md:scale-110 lg:scale-115"
+                  className="w-full h-auto object-contain"
                   sizes="(max-width: 768px) 100vw, 60vw"
                   priority
                 />
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="bg-gray-300 py-4">
-          <div className="container mx-auto px-4">
-            <h2 className="text-center font-bold text-xl uppercase">WHY CHOOSE US</h2>
+          {/* "Why Choose Us" - Remove margin */}
+          <div className="bg-gray-300 py-4 rounded-tl-[60px] rounded-tr-[60px] overflow-hidden"> 
+            <div className="container mx-auto px-4">
+              <h2 className="font-bold text-xl uppercase">WHY CHOOSE US</h2>
+            </div>
           </div>
         </section>
 
@@ -198,45 +197,42 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-center mb-8 md:mb-10">OUR SERVICES</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="overflow-hidden rounded-lg mb-4 shadow-sm">
-                  <div className="w-full" style={{ position: "relative", height: "250px", maxHeight: "350px" }}>
-                    <Image
-                      src="/led-wall-billboard.png"
-                      alt="LED Wall Billboard with orange background and model"
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                      priority
-                    />
-                  </div>
+                <div className="w-full relative mb-4 aspect-[4/3]">
+                  <Image
+                    src="/led-wall-billboard.png"
+                    alt="LED Wall Billboard with orange background and model"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    priority
+                  />
                 </div>
                 <h3 className="font-medium uppercase">LED WALL</h3>
               </div>
               <div className="text-center">
-                <div className="overflow-hidden rounded-lg mb-4 shadow-sm">
-                  <div className="w-full" style={{ position: "relative", height: "250px", maxHeight: "350px" }}>
-                    <Image
-                      src="/hoarding-billboard.png"
-                      alt="Roadside hoarding billboard in urban setting"
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
+                <div className="w-full relative mb-4 aspect-[4/3]">
+                  <Image
+                    src="/hoarding-billboard.png"
+                    alt="Roadside hoarding billboard in urban setting"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  />
                 </div>
                 <h3 className="font-medium uppercase">HOARDING</h3>
               </div>
               <div className="text-center sm:col-span-2 md:col-span-1">
-                <div className="overflow-hidden rounded-lg mb-4 shadow-sm">
-                  <div className="w-full" style={{ position: "relative", height: "250px", maxHeight: "350px" }}>
-                    <Image
-                      src="/trivision-billboard.png"
-                      alt="Trivision billboard display in urban entertainment district"
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
+                <div className="w-full relative mb-4 aspect-[4/3]">
+                  <Image
+                    src="/trivision-billboard.png"
+                    alt="Trivision billboard display in urban entertainment district"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  />
                 </div>
                 <h3 className="font-medium uppercase">TRIVISION</h3>
               </div>
@@ -244,15 +240,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery Section */}
-        <section className="py-10 md:py-16 bg-gray-100">
+        {/* Gallery Section - Increase horizontal padding significantly for larger screens */}
+        <section className="py-10 md:py-16 bg-gray-100 md:px-24 lg:px-48">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-1">Gallery</h2>
             <p className="text-sm text-gray-500 mb-4 md:mb-6">Latest Add on</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
               {/* Top row - 3 images */}
-              <div className="overflow-hidden rounded-lg group">
+              <div className="overflow-hidden rounded-lg group md:col-span-2">
                 <Image
                   src="/gallery-billboard-1.png"
                   alt="Billboard with yellow elements and BULL BLAK BAK BEOOM text"
@@ -261,16 +257,16 @@ export default function Home() {
                   className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg group">
+              <div className="overflow-hidden rounded-lg group md:col-span-1">
                 <Image
                   src="/gallery-billboard-2.png"
                   alt="Black billboard with BOULONY MOIOKD text and product display"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg group sm:col-span-2 md:col-span-1">
+              <div className="overflow-hidden rounded-lg group sm:col-span-2 md:col-span-2">
                 <Image
                   src="/gallery-billboard-3.png"
                   alt="Large blank billboard in Times Square with city lights and traffic"
@@ -281,26 +277,22 @@ export default function Home() {
               </div>
 
               {/* Bottom row - 2 images */}
-              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg relative group sm:col-span-2">
+              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg relative group sm:col-span-2 md:col-span-3">
                 <Image
                   src="/gallery-billboard-4.png"
                   alt="Digital LED billboard with purple and teal graphics on corner building"
                   width={800}
                   height={400}
-                  className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-[#ffcc33] p-3 sm:p-4 md:p-6">
-                  <p className="font-bold text-base sm:text-lg md:text-xl">Transform Billboard</p>
-                  <p className="text-xs sm:text-sm md:text-base">Outdoor The Most Advertising</p>
-                </div>
               </div>
-              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg group">
+              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg group md:col-span-2">
                 <Image
                   src="/gallery-billboard-5.png"
                   alt="Night-time digital billboard with red and teal design showing NEOOEL and NOY CITTY text"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -310,21 +302,20 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="bg-[#f8d24b] rounded-3xl p-6 sm:p-8 md:p-16 relative overflow-hidden">
-              {/* Decorative spring bottom left */}
+            <div className="bg-[#EBD163] rounded-3xl py-12 sm:py-16 md:py-28 relative overflow-hidden">
+              {/* Replace SVG with Image component for bottom left spring */}
               <div className="absolute bottom-32 left-6 opacity-30 hidden sm:block">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10,20 C40,20 0,40 30,60 C60,80 20,100 50,120"
-                    stroke="#666"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                <Image 
+                  src="/spring-graphic.png"
+                  alt="Decorative spring graphic"
+                  width={95}
+                  height={120}
+                  className="transform rotate-180"
+                />
               </div>
 
-              <div className="md:flex md:space-x-8 items-start justify-between relative z-10">
+              {/* Increase horizontal padding to this inner div */}
+              <div className="md:flex md:space-x-8 items-start justify-between relative z-10 px-12 sm:px-16 md:px-32">
                 {/* Form section */}
                 <div className="md:w-1/2 mb-8 md:mb-0">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8">Get In Touch</h2>
@@ -333,22 +324,22 @@ export default function Home() {
                       <input
                         type="text"
                         placeholder="Your Name"
-                        className="w-full p-3 sm:p-4 rounded-xl bg-transparent border border-gray-800/20 focus:ring-0 focus:outline-none placeholder-black/70"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
                       />
                       <input
                         type="email"
                         placeholder="Your Email"
-                        className="w-full p-3 sm:p-4 rounded-xl bg-transparent border border-gray-800/20 focus:ring-0 focus:outline-none placeholder-black/70"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
                       />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="tel"
                         placeholder="Phone Number"
-                        className="w-full p-3 sm:p-4 rounded-xl bg-transparent border border-gray-800/20 focus:ring-0 focus:outline-none placeholder-black/70"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
                       />
                       <div className="relative">
-                        <select className="w-full p-3 sm:p-4 rounded-xl bg-transparent border border-gray-800/20 appearance-none focus:ring-0 focus:outline-none placeholder-black/70">
+                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black appearance-none focus:ring-0 focus:outline-none placeholder-black/70 text-sm">
                           <option>Choose A Option</option>
                           <option>LED Wall</option>
                           <option>Hoarding</option>
@@ -364,7 +355,7 @@ export default function Home() {
                       <textarea
                         placeholder="Message Here.."
                         rows={4}
-                        className="w-full p-3 sm:p-4 rounded-xl bg-transparent border border-gray-800/20 focus:ring-0 focus:outline-none placeholder-black/70"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
                       ></textarea>
                     </div>
                     <div>
@@ -378,24 +369,6 @@ export default function Home() {
                 {/* Image section with spring in top right */}
                 <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
                   <div className="rounded-2xl overflow-hidden shadow-lg relative" style={{ maxWidth: "400px" }}>
-                    {/* Spring in top right of image */}
-                    <div className="absolute top-2 -right-8 opacity-30 z-10 hidden sm:block">
-                      <svg
-                        width="100"
-                        height="100"
-                        viewBox="0 0 100 100"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M60,10 C90,10 30,30 60,50 C90,70 30,90 60,110"
-                          stroke="#666"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </div>
                     <Image
                       src="/contact-billboard-new.png"
                       alt="Digital billboard with cityscape against orange sunset sky"
@@ -405,6 +378,16 @@ export default function Home() {
                     />
                   </div>
                 </div>
+              </div>
+
+              {/* Spring div moved here, positioned relative to yellow container - Move even further right */}
+              <div className="absolute top-16 right-4 md:right-8 opacity-100 z-10 hidden sm:block">
+                <Image 
+                  src="/spring-graphic.png"
+                  alt="Decorative spring graphic"
+                  width={95}
+                  height={120}
+                />
               </div>
             </div>
 
