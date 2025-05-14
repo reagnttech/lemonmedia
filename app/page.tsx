@@ -11,7 +11,7 @@ export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
-  
+
   // State for services carousel
   const [activeService, setActiveService] = useState(0)
   const services = [
@@ -177,39 +177,31 @@ export default function Home() {
         <section className="py-10 md:py-16">
           <div className="container mx-auto px-4">
             <div className="flex justify-between md:grid md:grid-cols-4 gap-2 md:gap-6 text-center">
+           
               <div className="relative pt-8 w-1/4 md:w-auto">
                 <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
-                  Projects
+                  Location
                 </div>
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
-                  1,219 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
+                  47 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Successful Project</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Locations</p>
               </div>
               <div className="relative pt-8 w-1/4 md:w-auto">
                 <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Years
                 </div>
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
-                  47 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
+                  15 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Years Experience</p>
-              </div>
-              <div className="relative pt-8 w-1/4 md:w-auto">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
-                  Awards
-                </div>
-                <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
-                  25 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
-                </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Winning Awards</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Years</p>
               </div>
               <div className="relative pt-8 w-1/4 md:w-auto">
                 <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Clients
                 </div>
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
-                  481 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
+                  500 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
                 <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Satisfied Clients</p>
               </div>
@@ -222,36 +214,24 @@ export default function Home() {
           <div className="container mx-auto px-4 overflow-x-hidden">
             <h2 className="text-2xl font-bold text-center mb-8 md:mb-10 font-calibri font-light">OUR SERVICES</h2>
             
-            {/* Mobile carousel view */}
-            <div className="block md:hidden w-full">
-              <div className="text-center mx-auto w-full">
-                <div className="w-full relative mb-4 aspect-[4/3]">
-                  <Image
-                    src={services[activeService].image}
-                    alt={services[activeService].alt}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="object-cover object-top rounded-lg"
-                    sizes="(max-width: 768px) 95vw"
-                    priority={activeService === 0}
-                  />
-                </div>
-                <h3 className="font-medium uppercase font-calibri mt-2">{services[activeService].name}</h3>
-                
-                {/* Navigation dots */}
-                <div className="flex justify-center space-x-2 mt-4">
-                  {services.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveService(index)}
-                      className={`w-2 h-2 rounded-full ${
-                        activeService === index ? "bg-black" : "bg-gray-300"
-                      }`}
-                      aria-label={`View ${services[index].name}`}
+            {/* Mobile scrollable services */}
+            <div className="flex overflow-x-auto pb-4 space-x-4 md:hidden">
+              {services.map((service, index) => (
+                <div key={index} className="flex-shrink-0 w-[80%] text-center">
+                  <div className="w-full relative mb-4 aspect-[4/3]">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="object-cover object-top rounded-lg"
+                      sizes="(max-width: 768px) 80vw"
+                      priority={index === 0}
                     />
-                  ))}
+                  </div>
+                  <h3 className="font-medium uppercase font-calibri mt-2">{service.name}</h3>
                 </div>
-              </div>
+              ))}
             </div>
             
             {/* Desktop grid view */}
