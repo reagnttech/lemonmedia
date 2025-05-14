@@ -24,29 +24,46 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Custom font styles */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+        
+        .font-gilroy {
+          font-family: 'Gilroy', sans-serif;
+        }
+        
+        .font-arial {
+          font-family: 'Arial', sans-serif;
+        }
+        
+        .font-calibri {
+          font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+      `}</style>
+
       {/* Navigation - Matching the image exactly */}
       <header className="bg-[#0f1a2a] text-white sticky top-0 z-50">
         <div className="container mx-auto flex items-center py-4 px-4">
           <div className="flex items-center">
-            <span className="text-[#FF0000] font-bold text-lg md:text-xl">LEMON</span>
-            <span className="font-bold text-lg md:text-xl text-white"> MEDIA</span>
+            <span className="text-[#FF0000] font-bold text-xl md:text-xl font-arial">LEMON</span>
+            <span className="font-bold text-xl md:text-xl text-white font-arial"> MEDIA</span>
           </div>
-          <nav className="flex ml-auto space-x-4 md:space-x-16">
+          <nav className="flex ml-auto space-x-6 md:space-x-16">
             <button
               onClick={() => scrollToSection(homeRef)}
-              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
+              className="text-xs md:text-base hover:text-gray-300 cursor-pointer font-arial"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection(servicesRef)}
-              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
+              className="text-xs md:text-base hover:text-gray-300 cursor-pointer font-arial"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection(contactRef)}
-              className="text-sm md:text-base hover:text-gray-300 cursor-pointer"
+              className="text-xs md:text-base hover:text-gray-300 cursor-pointer font-arial"
             >
               Contact Us
             </button>
@@ -58,22 +75,23 @@ export default function Home() {
         {/* Hero Section - Increase top padding significantly */}
         <section ref={homeRef} className="bg-white pt-16 md:pt-24 pb-0">
           <div className="container mx-auto px-4">
-            {/* Mobile: Stacked layout (current) / Desktop: Side-by-side layout (new) */}
+            {/* Mobile: Stacked layout with more spacing / Desktop: Side-by-side layout */}
             <div className="flex flex-col md:flex-row md:items-center">
-              {/* Text content - Adjust width */}
+              {/* Text content - Adjust width and spacing for mobile */}
               <div className="md:w-1/2 mb-8 md:mb-0 md:pr-4">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
-                  Triple your revenue <br className="hidden md:block" />
-                  with <span className="text-[#FF0000]">Free of Cost</span>
+                <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-10 md:mb-8 font-gilroy">
+                  Triple your revenue with
+                  <br className="block md:block" />
+                  <span className="text-[#FF0000] text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Free of Cost</span>
                 </h1>
-                <div className="mt-4 md:mt-6">
-                  <p className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">
-                    500+ <span className="text-base md:text-lg font-normal">Happy Clients</span>
+                <div className="mt-8 md:mt-6">
+                  <p className="text-4xl md:text-2xl lg:text-3xl font-normal mb-6 md:mb-6 font-arial">
+                    500+<span className="text-sm md:text-base font-bold font-gilroy">Happy Clients</span>
                   </p>
-                  <p className="mt-2 text-base md:text-lg mb-12 md:mb-16">
+                  <p className="mt-6 text-base md:text-lg mb-12 md:mb-16 font-gilroy font-medium">
                     Sky rocket your Billboard revenue with our
-                    <br className="hidden sm:block" />
-                    Domino effect <span className="text-[#FF0000] font-medium">Trivision Billboard</span>
+                    <br className="block sm:block" />
+                    Domino effect <span className="text-[#FF0000] font-medium font-gilroy">Trivision Billboard</span>
                   </p>
                 </div>
               </div>
@@ -93,9 +111,9 @@ export default function Home() {
             </div>
           </div>
           {/* "Why Choose Us" - Remove margin */}
-          <div className="bg-gray-300 py-4 rounded-tl-[60px] rounded-tr-[60px] overflow-hidden"> 
+          <div className="bg-gray-300 py-3 rounded-tl-[15px] rounded-tr-[15px] overflow-hidden"> 
             <div className="container mx-auto px-4">
-              <h2 className="font-bold text-xl uppercase">WHY CHOOSE US</h2>
+              <h2 className="font-medium text-base md:text-xl text-center md:text-left uppercase font-calibri">WHY CHOOSE US</h2>
             </div>
           </div>
         </section>
@@ -106,14 +124,14 @@ export default function Home() {
           <section className="bg-[#0a1a2a] text-white py-10 md:py-16 w-full md:w-1/2">
             <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-20">
               <div className="max-w-xl">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 md:mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 md:mb-8 font-calibri">
                   You can unlock
                   <br />
                   the new revenue
                   <br />
                   from Billboards
                 </h2>
-                <div className="space-y-4 md:space-y-6 text-sm md:text-base text-gray-300">
+                <div className="space-y-4 md:space-y-6 text-sm md:text-base text-gray-300 font-calibri font-light">
                   <p>We are joint venture advertising company.</p>
                   <p>
                     Our Moto is increasing your Existing
@@ -150,42 +168,42 @@ export default function Home() {
         {/* Stats Section */}
         <section className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
                   Projects
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10">
+                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
                   1,219 <span className="text-[#FF0000] text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500">Successful Projects</p>
+                <p className="text-xs text-gray-500 font-calibri">Successful Project</p>
               </div>
               <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
                   Years
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10">
+                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
                   47 <span className="text-[#FF0000] text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500">Cities Covered</p>
+                <p className="text-xs text-gray-500 font-calibri">Years Experience</p>
               </div>
               <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
                   Awards
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10">
+                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
                   25 <span className="text-[#FF0000] text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500">Years in Business</p>
+                <p className="text-xs text-gray-500 font-calibri">Winning Awards</p>
               </div>
               <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
                   Clients
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10">
+                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
                   481 <span className="text-[#FF0000] text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500">Happy Clients</p>
+                <p className="text-xs text-gray-500 font-calibri">Satisfied Clients</p>
               </div>
             </div>
           </div>
@@ -194,9 +212,9 @@ export default function Home() {
         {/* Services Section */}
         <section ref={servicesRef} className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center mb-8 md:mb-10">OUR SERVICES</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="text-center">
+            <h2 className="text-2xl font-bold text-center mb-8 md:mb-10 font-calibri font-light">OUR SERVICES</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="text-center mx-auto w-full">
                 <div className="w-full relative mb-4 aspect-[4/3]">
                   <Image
                     src="/led-wall-billboard.png"
@@ -208,9 +226,9 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <h3 className="font-medium uppercase">LED WALL</h3>
+                <h3 className="font-medium uppercase font-calibri">LED WALL</h3>
               </div>
-              <div className="text-center">
+              <div className="text-center sm:hidden md:block">
                 <div className="w-full relative mb-4 aspect-[4/3]">
                   <Image
                     src="/hoarding-billboard.png"
@@ -221,9 +239,9 @@ export default function Home() {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   />
                 </div>
-                <h3 className="font-medium uppercase">HOARDING</h3>
+                <h3 className="font-medium uppercase font-calibri">HOARDING</h3>
               </div>
-              <div className="text-center sm:col-span-2 md:col-span-1">
+              <div className="text-center sm:hidden md:block">
                 <div className="w-full relative mb-4 aspect-[4/3]">
                   <Image
                     src="/trivision-billboard.png"
@@ -234,7 +252,7 @@ export default function Home() {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   />
                 </div>
-                <h3 className="font-medium uppercase">TRIVISION</h3>
+                <h3 className="font-medium uppercase font-calibri">TRIVISION</h3>
               </div>
             </div>
           </div>
@@ -243,8 +261,8 @@ export default function Home() {
         {/* Gallery Section - Increase horizontal padding significantly for larger screens */}
         <section className="py-10 md:py-16 bg-gray-100 md:px-24 lg:px-48">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-1">Gallery</h2>
-            <p className="text-sm text-gray-500 mb-4 md:mb-6">Latest Add on</p>
+            <h2 className="text-2xl font-bold mb-1 font-calibri">Gallery</h2>
+            <p className="text-sm text-gray-500 mb-4 md:mb-6 font-calibri font-light">Latest Add on</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
               {/* Top row - 3 images */}
@@ -318,36 +336,36 @@ export default function Home() {
               <div className="md:flex md:space-x-8 items-start justify-between relative z-10 px-12 sm:px-16 md:px-32">
                 {/* Form section */}
                 <div className="md:w-1/2 mb-8 md:mb-0">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8">Get In Touch</h2>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 font-calibri">Get In Touch</h2>
                   <form className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="text"
                         placeholder="Your Name"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
                       />
                       <input
                         type="email"
                         placeholder="Your Email"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
                       />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="tel"
                         placeholder="Phone Number"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
                       />
                       <div className="relative">
-                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black appearance-none focus:ring-0 focus:outline-none placeholder-black/70 text-sm">
+                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black appearance-none focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri pr-8">
                           <option>Choose A Option</option>
                           <option>LED Wall</option>
                           <option>Hoarding</option>
                           <option>Trivision</option>
                         </select>
                         <ChevronDown
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
-                          size={16}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black pointer-events-none"
+                          size={14}
                         />
                       </div>
                     </div>
@@ -355,11 +373,11 @@ export default function Home() {
                       <textarea
                         placeholder="Message Here.."
                         rows={4}
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
                       ></textarea>
                     </div>
                     <div>
-                      <button className="bg-black text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium flex items-center text-sm sm:text-base">
+                      <button className="bg-black text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium flex items-center text-sm sm:text-base font-calibri">
                         Send Now <span className="ml-1">→</span>
                       </button>
                     </div>
@@ -439,10 +457,10 @@ export default function Home() {
 
           <div className="container mx-auto px-6 sm:px-8 md:px-10 max-w-4xl relative z-10 pt-6 sm:pt-8 md:pt-10">
             <div className="text-center mb-6 px-4 sm:px-6 md:px-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-calibri">
                 <span className="font-bold">Subscribe</span> <span className="font-light">Newsletter</span>
               </h2>
-              <p className="text-gray-400 mt-4 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2">
+              <p className="text-gray-400 mt-4 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2 font-calibri font-light">
                 Business Consulting Services Can Range From Strategy Develo Financial Planning,
                 <br className="hidden md:block" /> Marketing, Human Resources Management
               </p>
@@ -453,9 +471,9 @@ export default function Home() {
                 <input
                   type="email"
                   placeholder="Your E-Mail"
-                  className="w-full py-3 sm:py-4 px-6 sm:px-8 bg-transparent text-white focus:outline-none text-sm sm:text-base"
+                  className="w-full py-3 sm:py-4 px-6 sm:px-8 bg-transparent text-white focus:outline-none text-sm sm:text-base font-calibri"
                 />
-                <button className="bg-[#f8d24b] text-black px-4 sm:px-8 py-2 sm:py-3 font-medium rounded-full absolute right-1 top-1 text-xs sm:text-base mr-2 sm:mr-0">
+                <button className="bg-[#f8d24b] text-black px-4 sm:px-8 py-2 sm:py-3 font-medium rounded-full absolute right-1 top-1 text-xs sm:text-base mr-2 sm:mr-0 font-calibri">
                   Subscribe
                 </button>
               </form>
