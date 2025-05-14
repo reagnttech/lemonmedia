@@ -20,6 +20,9 @@ export default function Home() {
     { name: "TRIVISION", image: "/trivision-billboard.png", alt: "Trivision billboard display in urban entertainment district" }
   ]
 
+  // State for mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   // Scroll to section function
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -51,12 +54,13 @@ export default function Home() {
 
       {/* Navigation - Matching the image exactly */}
       <header className="bg-[#0f1a2a] text-white sticky top-0 z-50">
-        <div className="container mx-auto flex items-center py-4 px-4">
+        <div className="container mx-auto flex items-center justify-between py-4 px-4">
           <div className="flex items-center">
             <span className="text-[#FF0000] font-bold text-xl md:text-xl font-arial">LEMON</span>
             <span className="font-bold text-xl md:text-xl text-white font-arial"> MEDIA</span>
           </div>
-          <nav className="flex ml-auto space-x-6 md:space-x-16">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex ml-auto space-x-6 md:space-x-16">
             <button
               onClick={() => scrollToSection(homeRef)}
               className="text-xs md:text-base hover:text-gray-300 cursor-pointer font-arial"
@@ -76,7 +80,40 @@ export default function Home() {
               Contact Us
             </button>
           </nav>
+          {/* Mobile Burger Button */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white focus:outline-none">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
+              </svg>
+            </button>
+          </div>
         </div>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-[#0f1a2a]">
+            <nav className="flex flex-col items-center space-y-4 py-4">
+              <button
+                onClick={() => { scrollToSection(homeRef); setIsMobileMenuOpen(false); }}
+                className="text-base hover:text-gray-300 cursor-pointer font-arial"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => { scrollToSection(servicesRef); setIsMobileMenuOpen(false); }}
+                className="text-base hover:text-gray-300 cursor-pointer font-arial"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => { scrollToSection(contactRef); setIsMobileMenuOpen(false); }}
+                className="text-base hover:text-gray-300 cursor-pointer font-arial"
+              >
+                Contact Us
+              </button>
+            </nav>
+          </div>
+        )}
       </header>
 
       <main className="flex-grow">
