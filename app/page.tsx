@@ -4,13 +4,21 @@ import type React from "react"
 
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 export default function Home() {
   // References to sections
   const homeRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
+  
+  // State for services carousel
+  const [activeService, setActiveService] = useState(0)
+  const services = [
+    { name: "LED WALL", image: "/led-wall-billboard.png", alt: "LED Wall Billboard with orange background and model" },
+    { name: "HOARDING", image: "/hoarding-billboard.png", alt: "Roadside hoarding billboard in urban setting" },
+    { name: "TRIVISION", image: "/trivision-billboard.png", alt: "Trivision billboard display in urban entertainment district" }
+  ]
 
   // Scroll to section function
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
@@ -168,42 +176,42 @@ export default function Home() {
         {/* Stats Section */}
         <section className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
+            <div className="flex justify-between md:grid md:grid-cols-4 gap-2 md:gap-6 text-center">
+              <div className="relative pt-8 w-1/4 md:w-auto">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Projects
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
-                  1,219 <span className="text-[#FF0000] text-sm">+</span>
+                <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
+                  1,219 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500 font-calibri">Successful Project</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Successful Project</p>
               </div>
-              <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
+              <div className="relative pt-8 w-1/4 md:w-auto">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Years
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
-                  47 <span className="text-[#FF0000] text-sm">+</span>
+                <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
+                  47 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500 font-calibri">Years Experience</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Years Experience</p>
               </div>
-              <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
+              <div className="relative pt-8 w-1/4 md:w-auto">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Awards
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
-                  25 <span className="text-[#FF0000] text-sm">+</span>
+                <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
+                  25 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500 font-calibri">Winning Awards</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Winning Awards</p>
               </div>
-              <div className="relative pt-8">
-                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-3xl md:text-4xl font-bold italic font-calibri">
+              <div className="relative pt-8 w-1/4 md:w-auto">
+                <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
                   Clients
                 </div>
-                <p className="text-xl sm:text-2xl font-bold relative z-10 font-calibri">
-                  481 <span className="text-[#FF0000] text-sm">+</span>
+                <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
+                  481 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-xs text-gray-500 font-calibri">Satisfied Clients</p>
+                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Satisfied Clients</p>
               </div>
             </div>
           </div>
@@ -211,49 +219,59 @@ export default function Home() {
 
         {/* Services Section */}
         <section ref={servicesRef} className="py-10 md:py-16">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 overflow-x-hidden">
             <h2 className="text-2xl font-bold text-center mb-8 md:mb-10 font-calibri font-light">OUR SERVICES</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            
+            {/* Mobile carousel view */}
+            <div className="block md:hidden w-full">
               <div className="text-center mx-auto w-full">
                 <div className="w-full relative mb-4 aspect-[4/3]">
                   <Image
-                    src="/led-wall-billboard.png"
-                    alt="LED Wall Billboard with orange background and model"
+                    src={services[activeService].image}
+                    alt={services[activeService].alt}
                     fill
                     style={{ objectFit: "cover" }}
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                    priority
+                    className="object-cover object-top rounded-lg"
+                    sizes="(max-width: 768px) 95vw"
+                    priority={activeService === 0}
                   />
                 </div>
-                <h3 className="font-medium uppercase font-calibri">LED WALL</h3>
-              </div>
-              <div className="text-center sm:hidden md:block">
-                <div className="w-full relative mb-4 aspect-[4/3]">
-                  <Image
-                    src="/hoarding-billboard.png"
-                    alt="Roadside hoarding billboard in urban setting"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  />
+                <h3 className="font-medium uppercase font-calibri mt-2">{services[activeService].name}</h3>
+                
+                {/* Navigation dots */}
+                <div className="flex justify-center space-x-2 mt-4">
+                  {services.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveService(index)}
+                      className={`w-2 h-2 rounded-full ${
+                        activeService === index ? "bg-black" : "bg-gray-300"
+                      }`}
+                      aria-label={`View ${services[index].name}`}
+                    />
+                  ))}
                 </div>
-                <h3 className="font-medium uppercase font-calibri">HOARDING</h3>
               </div>
-              <div className="text-center sm:hidden md:block">
-                <div className="w-full relative mb-4 aspect-[4/3]">
-                  <Image
-                    src="/trivision-billboard.png"
-                    alt="Trivision billboard display in urban entertainment district"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  />
+            </div>
+            
+            {/* Desktop grid view */}
+            <div className="hidden md:grid md:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-full relative mb-4 aspect-[4/3]">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                      priority={index === 0}
+                    />
+                  </div>
+                  <h3 className="font-medium uppercase font-calibri">{service.name}</h3>
                 </div>
-                <h3 className="font-medium uppercase font-calibri">TRIVISION</h3>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -264,7 +282,57 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-1 font-calibri">Gallery</h2>
             <p className="text-sm text-gray-500 mb-4 md:mb-6 font-calibri font-light">Latest Add on</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+            {/* Mobile scrollable gallery */}
+            <div className="flex overflow-x-auto pb-4 space-x-4 md:hidden">
+              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+                <Image
+                  src="/gallery-billboard-1.png"
+                  alt="Billboard with yellow elements and BULL BLAK BAK BEOOM text"
+                  width={400}
+                  height={250}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+                <Image
+                  src="/gallery-billboard-2.png"
+                  alt="Black billboard with BOULONY MOIOKD text and product display"
+                  width={400}
+                  height={250}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+                <Image
+                  src="/gallery-billboard-3.png"
+                  alt="Large blank billboard in Times Square with city lights and traffic"
+                  width={400}
+                  height={250}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+                <Image
+                  src="/gallery-billboard-4.png"
+                  alt="Digital LED billboard with purple and teal graphics on corner building"
+                  width={400}
+                  height={250}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+                <Image
+                  src="/gallery-billboard-5.png"
+                  alt="Night-time digital billboard with red and teal design showing NEOOEL and NOY CITTY text"
+                  width={400}
+                  height={250}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+            </div>
+
+            {/* Desktop grid gallery */}
+            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
               {/* Top row - 3 images */}
               <div className="overflow-hidden rounded-lg group md:col-span-2">
                 <Image
@@ -406,30 +474,6 @@ export default function Home() {
                   width={95}
                   height={120}
                 />
-              </div>
-            </div>
-
-            {/* Stats section */}
-            <div className="relative -mt-6 sm:-mt-8 md:-mt-12 z-20 max-w-5xl mx-auto">
-              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md">
-                <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                  <div className="text-center p-2 md:p-4">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold">200+</p>
-                    <p className="text-xs text-gray-500">Canvases</p>
-                  </div>
-                  <div className="text-center p-2 md:p-4">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold">12M+</p>
-                    <p className="text-xs text-gray-500">Weekly Impressions</p>
-                  </div>
-                  <div className="text-center p-2 md:p-4">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold">200K+</p>
-                    <p className="text-xs text-gray-500">Creatives</p>
-                  </div>
-                  <div className="text-center p-2 md:p-4">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold">500+</p>
-                    <p className="text-xs text-gray-500">Clients</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
