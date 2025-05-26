@@ -15,9 +15,11 @@ export default function Home() {
   // State for services carousel
   const [activeService, setActiveService] = useState(0)
   const services = [
-    { name: "LED WALL", image: "/led-wall-billboard.png", alt: "LED Wall Billboard with orange background and model" },
+    { name: "TRIVISION", image: "/trivision-billboard.png", alt: "Trivision billboard display in urban entertainment district" },
+
     { name: "HOARDING", image: "/hoarding-billboard.png", alt: "Roadside hoarding billboard in urban setting" },
-    { name: "TRIVISION", image: "/trivision-billboard.png", alt: "Trivision billboard display in urban entertainment district" }
+    { name: "LED WALL", image: "/led-wall-billboard.png", alt: "LED Wall Billboard with orange background and model" },
+
   ]
 
   // State for mobile menu
@@ -53,7 +55,7 @@ export default function Home() {
       `}</style>
 
       {/* Navigation - Matching the image exactly */}
-      <header className="bg-[#0f1a2a] text-white sticky top-0 z-50">
+      <header className="bg-[#0A192A] text-white sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           <div className="flex items-center">
             <span className="text-[#FF0000] font-bold text-xl md:text-xl font-arial">LEMON</span>
@@ -91,7 +93,7 @@ export default function Home() {
         </div>
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#0f1a2a]">
+          <div className="md:hidden bg-[#0A192A]">
             <nav className="flex flex-col items-center space-y-4 py-4">
               <button
                 onClick={() => { scrollToSection(homeRef); setIsMobileMenuOpen(false); }}
@@ -156,7 +158,7 @@ export default function Home() {
             </div>
           </div>
           {/* "Why Choose Us" - Remove margin */}
-          <div className="bg-gray-300 py-3 rounded-tl-[15px] rounded-tr-[15px] overflow-hidden"> 
+          <div className="bg-[#D1D4DB] py-3 rounded-tl-[15px] rounded-tr-[15px] overflow-hidden"> 
             <div className="container mx-auto px-4">
               <h2 className="font-medium text-base md:text-xl text-center md:text-left uppercase font-calibri">WHY CHOOSE US</h2>
             </div>
@@ -166,7 +168,7 @@ export default function Home() {
         {/* Two-column section (dark blue + red) */}
         <div className="flex flex-col md:flex-row">
           {/* Dark blue section */}
-          <section className="bg-[#0a1a2a] text-white py-10 md:py-16 w-full md:w-1/2">
+          <section className="bg-[#0A192A] text-white py-10 md:py-16 w-full md:w-1/2">
             <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-20">
               <div className="max-w-xl">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 md:mb-8 font-calibri">
@@ -176,14 +178,15 @@ export default function Home() {
                   <br />
                   from Billboards
                 </h2>
-                <div className="space-y-4 md:space-y-6 text-sm md:text-base text-gray-300 font-calibri font-light">
+                <div className="space-y-4 md:space-y-6 text-sm md:text-base text-[#D1D4DB] font-calibri font-light">
                   <p>We are joint venture advertising company.</p>
                   <p>
                     Our Moto is increasing your Existing
                     <br className="hidden sm:block" />
                     Billboard revenue at Free of Cost (Win-Win Situation).
                   </p>
-                  <p>Our Winning metric is your prime locations</p>
+                  <p>Our working method is that if you have a Billboard in a prime location, we will provide you with one of our new TRIVISION BILLBOARD free of charge. This way, you can display three advertisements on your billboard instead of just one. As a result, you will earn income from three advertisements instead of one. All you have to do is give us a share of the income you get from that.
+                  </p>
                 </div>
               </div>
             </div>
@@ -222,7 +225,7 @@ export default function Home() {
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
                   47 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Locations</p>
+                <p className="text-[10px] md:text-xs text-[#D1D4DB] font-calibri">Locations</p>
               </div>
               <div className="relative pt-8 w-1/4 md:w-auto">
                 <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
@@ -231,7 +234,7 @@ export default function Home() {
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
                   15 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Years</p>
+                <p className="text-[10px] md:text-xs text-[#D1D4DB] font-calibri">Years</p>
               </div>
               <div className="relative pt-8 w-1/4 md:w-auto">
                 <div className="absolute inset-x-0 top-0 flex justify-center opacity-10 text-xl md:text-4xl font-bold italic font-calibri">
@@ -240,7 +243,7 @@ export default function Home() {
                 <p className="text-lg sm:text-2xl font-bold relative z-10 font-calibri">
                   500 <span className="text-[#FF0000] text-xs md:text-sm">+</span>
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-calibri">Satisfied Clients</p>
+                <p className="text-[10px] md:text-xs text-[#D1D4DB] font-calibri">Satisfied Clients</p>
               </div>
             </div>
           </div>
@@ -294,10 +297,10 @@ export default function Home() {
         </section>
 
         {/* Gallery Section - Increase horizontal padding significantly for larger screens */}
-        <section className="py-10 md:py-16 bg-gray-100 md:px-24 lg:px-48">
+        <section className="py-10 md:py-16 bg-[#ECECEC] md:px-24 lg:px-48">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-1 font-calibri">Gallery</h2>
-            <p className="text-sm text-gray-500 mb-4 md:mb-6 font-calibri font-light">Latest Add on</p>
+            <p className="text-sm text-gray-600 mb-4 md:mb-6 font-calibri font-light">Latest Add on</p>
 
             {/* Mobile scrollable gallery */}
             <div className="flex overflow-x-auto pb-4 space-x-4 md:hidden">
@@ -405,7 +408,7 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="bg-[#EBD163] rounded-3xl py-12 sm:py-16 md:py-28 relative overflow-hidden">
+            <div className="bg-[#0A192A] rounded-3xl py-12 sm:py-16 md:py-28 relative overflow-hidden">
               {/* Replace SVG with Image component for bottom left spring */}
               <div className="absolute bottom-32 left-6 opacity-30 hidden sm:block">
                 <Image 
@@ -421,35 +424,35 @@ export default function Home() {
               <div className="md:flex md:space-x-8 items-start justify-between relative z-10 px-12 sm:px-16 md:px-32">
                 {/* Form section */}
                 <div className="md:w-1/2 mb-8 md:mb-0">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 font-calibri">Get In Touch</h2>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 font-calibri text-white">Get In Touch</h2>
                   <form className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="text"
                         placeholder="Your Name"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
                       />
                       <input
                         type="email"
                         placeholder="Your Email"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
                       />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="tel"
                         placeholder="Phone Number"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
                       />
                       <div className="relative">
-                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black appearance-none focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri pr-8">
-                          <option>Choose A Option</option>
-                          <option>LED Wall</option>
-                          <option>Hoarding</option>
-                          <option>Trivision</option>
+                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white appearance-none focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri pr-8 text-white">
+                          <option className="text-black">Choose A Option</option>
+                          <option className="text-black">LED Wall</option>
+                          <option className="text-black">Hoarding</option>
+                          <option className="text-black">Trivision</option>
                         </select>
                         <ChevronDown
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black pointer-events-none"
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white pointer-events-none"
                           size={14}
                         />
                       </div>
@@ -458,11 +461,11 @@ export default function Home() {
                       <textarea
                         placeholder="Message Here.."
                         rows={4}
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-black focus:ring-0 focus:outline-none placeholder-black/70 text-sm font-calibri"
+                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
                       ></textarea>
                     </div>
                     <div>
-                      <button className="bg-black text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium flex items-center text-sm sm:text-base font-calibri">
+                      <button className="bg-white text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium flex items-center text-sm sm:text-base font-calibri">
                         Send Now <span className="ml-1">→</span>
                       </button>
                     </div>
@@ -521,7 +524,7 @@ export default function Home() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-calibri">
                 <span className="font-bold">Subscribe</span> <span className="font-light">Newsletter</span>
               </h2>
-              <p className="text-gray-400 mt-4 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2 font-calibri font-light">
+              <p className="text-[#D1D4DB] mt-4 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2 font-calibri font-light">
                 Business Consulting Services Can Range From Strategy Develo Financial Planning,
                 <br className="hidden md:block" /> Marketing, Human Resources Management
               </p>
