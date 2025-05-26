@@ -498,52 +498,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Newsletter Section */}
-        <section className="py-16 pb-32 bg-[#1a1a1a] text-white relative">
-          {/* Custom border with CSS */}
-          <div
-            className="absolute left-0 right-0 top-0 bottom-0"
-            style={{
-              width: "90%", // Wider on mobile
-              maxWidth: "1200px",
-              margin: "0 auto",
-              borderLeft: "1px solid rgba(107, 114, 128, 0.3)",
-              borderRight: "1px solid rgba(107, 114, 128, 0.3)",
-              borderBottom: "1px solid rgba(107, 114, 128, 0.3)",
-              borderTop: "none",
-              borderBottomLeftRadius: "100px",
-              borderBottomRightRadius: "100px",
-              height: "calc(100% - 60px)", // Make the border shorter than the section
-              paddingTop: "20px", // Add padding inside the border
-            }}
-          ></div>
-
-          <div className="container mx-auto px-6 sm:px-8 md:px-10 max-w-4xl relative z-10 pt-6 sm:pt-8 md:pt-10">
-            <div className="text-center mb-6 px-4 sm:px-6 md:px-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-calibri">
-                <span className="font-bold">Subscribe</span> <span className="font-light">Newsletter</span>
-              </h2>
-              <p className="text-[#D1D4DB] mt-4 text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2 font-calibri font-light">
-                Business Consulting Services Can Range From Strategy Develo Financial Planning,
-                <br className="hidden md:block" /> Marketing, Human Resources Management
-              </p>
-            </div>
-
-            <div className="mt-6 sm:mt-8 mb-12 sm:mb-16 relative max-w-2xl mx-auto px-4 sm:px-6">
-              <form className="flex rounded-full overflow-hidden border border-gray-700 bg-transparent relative pr-2 sm:pr-0">
-                <input
-                  type="email"
-                  placeholder="Your E-Mail"
-                  className="w-full py-3 sm:py-4 px-6 sm:px-8 bg-transparent text-white focus:outline-none text-sm sm:text-base font-calibri"
-                />
-                <button className="bg-[#f8d24b] text-black px-4 sm:px-8 py-2 sm:py-3 font-medium rounded-full absolute right-1 top-1 text-xs sm:text-base mr-2 sm:mr-0 font-calibri">
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   )
