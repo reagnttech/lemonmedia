@@ -16,10 +16,8 @@ export default function Home() {
   const [activeService, setActiveService] = useState(0)
   const services = [
     { name: "TRIVISION", image: "/trivision-billboard.png", alt: "Trivision billboard display in urban entertainment district" },
-
     { name: "HOARDING", image: "/hoarding-billboard.png", alt: "Roadside hoarding billboard in urban setting" },
-    { name: "LED WALL", image: "/led-wall-billboard.png", alt: "LED Wall Billboard with orange background and model" },
-
+    { name: "WALL HOARDING", image: "/led-wall-billboard.png", alt: "Wall hoarding billboard with orange background and model" },
   ]
 
   // State for mobile menu
@@ -200,11 +198,11 @@ export default function Home() {
                 <div className="relative z-10">
                   <div>
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-X9OlMffpFU83jkIqWokd9o5GMKDqUX.png"
-                      alt="Billboard Advertisement with Woman and UHK Product"
+                      src="/billboard-with-woman.png"
+                      alt="Billboard advertisement featuring a woman"
                       width={400}
                       height={400}
-                      className="w-full h-auto"
+                      className="w-full h-auto rounded-lg"
                     />
                   </div>
                 </div>
@@ -296,109 +294,88 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery Section - Increase horizontal padding significantly for larger screens */}
-        <section className="py-10 md:py-16 bg-[#ECECEC] md:px-24 lg:px-48">
+        {/* Gallery Section */}
+        <section className="py-10 md:py-16 bg-[#ECECEC]">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-1 font-calibri">Gallery</h2>
             <p className="text-sm text-gray-600 mb-4 md:mb-6 font-calibri font-light">Latest Add on</p>
 
             {/* Mobile scrollable gallery */}
             <div className="flex overflow-x-auto pb-4 space-x-4 md:hidden">
-              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+              <div className="flex-shrink-0 w-[85%] overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-1.png"
                   alt="Billboard with yellow elements and BULL BLAK BAK BEOOM text"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+              <div className="flex-shrink-0 w-[85%] overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-2.png"
                   alt="Black billboard with BOULONY MOIOKD text and product display"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+              <div className="flex-shrink-0 w-[85%] overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-3.png"
                   alt="Large blank billboard in Times Square with city lights and traffic"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
+              <div className="flex-shrink-0 w-[85%] overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-4.png"
                   alt="Digital LED billboard with purple and teal graphics on corner building"
                   width={400}
                   height={250}
-                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="flex-shrink-0 w-[80%] overflow-hidden rounded-lg group">
-                <Image
-                  src="/gallery-billboard-5.png"
-                  alt="Night-time digital billboard with red and teal design showing NEOOEL and NOY CITTY text"
-                  width={400}
-                  height={250}
-                  className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
 
             {/* Desktop grid gallery */}
-            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
-              {/* Top row - 3 images */}
-              <div className="overflow-hidden rounded-lg group md:col-span-2">
+            <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-1.png"
                   alt="Billboard with yellow elements and BULL BLAK BAK BEOOM text"
                   width={400}
-                  height={250}
-                  className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  height={300}
+                  className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg group md:col-span-1">
+              <div className="overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-2.png"
                   alt="Black billboard with BOULONY MOIOKD text and product display"
                   width={400}
-                  height={250}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  height={300}
+                  className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg group sm:col-span-2 md:col-span-2">
+              <div className="overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-3.png"
                   alt="Large blank billboard in Times Square with city lights and traffic"
                   width={400}
-                  height={250}
-                  className="w-full h-[200px] sm:h-[250px] object-cover transition-transform duration-300 group-hover:scale-110"
+                  height={300}
+                  className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-
-              {/* Bottom row - 2 images */}
-              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg relative group sm:col-span-2 md:col-span-3">
+              <div className="overflow-hidden rounded-lg group">
                 <Image
                   src="/gallery-billboard-4.png"
                   alt="Digital LED billboard with purple and teal graphics on corner building"
-                  width={800}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 sm:mt-0 overflow-hidden rounded-lg group md:col-span-2">
-                <Image
-                  src="/gallery-billboard-5.png"
-                  alt="Night-time digital billboard with red and teal design showing NEOOEL and NOY CITTY text"
                   width={400}
-                  height={250}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  height={300}
+                  className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -408,8 +385,8 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="py-10 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="bg-[#0A192A] rounded-3xl py-12 sm:py-16 md:py-28 relative overflow-hidden">
-              {/* Replace SVG with Image component for bottom left spring */}
+            <div className="bg-[#0A192A] rounded-3xl py-12 sm:py-16 md:py-20 relative overflow-hidden">
+              {/* Spring graphic - bottom left */}
               <div className="absolute bottom-32 left-6 opacity-30 hidden sm:block">
                 <Image 
                   src="/spring-graphic.png"
@@ -420,73 +397,51 @@ export default function Home() {
                 />
               </div>
 
-              {/* Increase horizontal padding to this inner div */}
-              <div className="md:flex md:space-x-8 items-start justify-between relative z-10 px-12 sm:px-16 md:px-32">
-                {/* Form section */}
-                <div className="md:w-1/2 mb-8 md:mb-0">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 font-calibri text-white">Get In Touch</h2>
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <input
-                        type="text"
-                        placeholder="Your Name"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
-                      />
-                      <input
-                        type="email"
-                        placeholder="Your Email"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <input
-                        type="tel"
-                        placeholder="Phone Number"
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
-                      />
-                      <div className="relative">
-                        <select className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white appearance-none focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri pr-8 text-white">
-                          <option className="text-black">Choose A Option</option>
-                          <option className="text-black">LED Wall</option>
-                          <option className="text-black">Hoarding</option>
-                          <option className="text-black">Trivision</option>
-                        </select>
-                        <ChevronDown
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white pointer-events-none"
-                          size={14}
-                        />
+              {/* Content Container */}
+              <div className="relative z-10 px-8 sm:px-12 md:px-20">
+                <div className="md:flex items-start justify-between">
+                  {/* Contact Details */}
+                  <div className="md:w-1/2 text-white">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-10 font-calibri">Get In Touch</h2>
+                    
+                    <div className="space-y-6 font-calibri">
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">LEMON MEDIA</h3>
+                        <p className="text-white/90">
+                          CNRA: 40, Christ Nagar<br />
+                          Trivandrum, Kerala,<br />
+                          India.
+                        </p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">Email</h3>
+                        <a 
+                          href="mailto:lemonmediamail@gmail.com" 
+                          className="text-white/90 hover:text-white transition-colors"
+                        >
+                          lemonmediamail@gmail.com
+                        </a>
                       </div>
                     </div>
-                    <div>
-                      <textarea
-                        placeholder="Message Here.."
-                        rows={4}
-                        className="w-full p-3 sm:p-4 rounded-2xl bg-transparent border border-white focus:ring-0 focus:outline-none placeholder-white/70 text-sm font-calibri text-white"
-                      ></textarea>
-                    </div>
-                    <div>
-                      <button className="bg-white text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium flex items-center text-sm sm:text-base font-calibri">
-                        Send Now <span className="ml-1">→</span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                  </div>
 
-                {/* Image section with spring in top right */}
-                <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-                  <div className="rounded-2xl overflow-hidden shadow-lg relative" style={{ maxWidth: "400px" }}>
-                    <Image
-                      src="/contact-billboard-new.png"
-                      alt="Digital billboard with cityscape against orange sunset sky"
-                      width={400}
-                      height={280}
-                      className="w-full h-auto"
-                    />
+                  {/* Image section */}
+                  <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+                    <div className="rounded-2xl overflow-hidden shadow-lg relative" style={{ maxWidth: "400px" }}>
+                      <Image
+                        src="/contact-billboard-new.png"
+                        alt="Digital billboard with cityscape against orange sunset sky"
+                        width={400}
+                        height={280}
+                        className="w-full h-auto"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Spring div moved here, positioned relative to yellow container - Move even further right */}
+              {/* Spring graphic - top right */}
               <div className="absolute top-16 right-4 md:right-8 opacity-100 z-10 hidden sm:block">
                 <Image 
                   src="/spring-graphic.png"
